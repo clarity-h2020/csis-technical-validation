@@ -1,5 +1,6 @@
 {
-  "projectId": "clarity-cypress-tests",
+  "$schema": "https://on.cypress.io/cypress.schema.json",
+  "projectId": "csis-cypress-tests",
   "viewportWidth": 1000,
   "viewportHeight": 1000
 }

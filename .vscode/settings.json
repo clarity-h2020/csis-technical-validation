@@ -1,0 +1,14 @@
+{
+  "eslint.enable": true,
+  "npm.packageManager": "yarn",
+  "npm.enableScriptExplorer": true,
+  "editor.formatOnSave": false,
+  "json.schemas": [
+    {
+      "fileMatch": [
+        "cypress.json"
+      ],
+      "url": "https://on.cypress.io/cypress.schema.json"
+    }
+  ]
+}
