@@ -1,21 +1,14 @@
 {
-  "name": "clarity-cypress",
-  "version": "0.1.0",
+  "name": "csis-cypress",
+  "version": "0.2.0",
   "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.4.0",
-    "@testing-library/user-event": "^7.2.1",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "react-scripts": "3.3.0"
-  },
+  "dependencies": {},
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
+    "start": "cypress open",
+    "build": "cypress verify",
+    "test": "cypress run",
     "cy": "$(npm bin)/cypress open",
+    "cy:open": "cypress open",
     "cy:verify": "cypress verify",
     "cy:ci": "cypress run"
   },
@@ -35,6 +28,7 @@
     ]
   },
   "devDependencies": {
-    "cypress": "^3.8.3"
+    "cypress": "^3.8.3",
+    "eslint-plugin-cypress": "^2.8.1"
   }
 }
