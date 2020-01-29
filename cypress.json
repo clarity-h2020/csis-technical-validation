@@ -1,6 +1,11 @@
 {
   "$schema": "https://on.cypress.io/cypress.schema.json",
   "projectId": "csis-cypress-tests",
+  "defaultCommandTimeout" : 10000,
   "viewportWidth": 1000,
-  "viewportHeight": 1000
+  "viewportHeight": 1000,
+  "env": {
+    "baseUrl": "https://csis.myclimateservice.eu",
+    "casUrl": "https://profile.myclimateservices.eu/cas"
+  }
 }
