@@ -2,41 +2,17 @@
 // import Cypress from 'cypress';
 // import cy from 'cypress';
 let cyEnv = Cypress.env();
-Cypress.config('baseUrl', cyEnv.baseUrl);
 
-/**
- * context() is identical to describe() and specify() is identical to it(), so choose whatever terminology works best for you.
- */
-describe('CLARTIY CSIS CAS Tests', function() {
-	/**
-	 * runs once before all tests in the block
-	 */
-	before(() => {
-		cy.visit(`${cyEnv.casUrl}/logout`); 
-		cy.get('#block-mcs-profiles-theme-content > .content').contains('You have been logged out');
+// Base URL HAVOC. Of course, I can only be specified once per project. Makes Sense.
+// So overwriting the baseUrl in 020 will also change the base url of the 010 test spec.
+Cypress.config('baseUrl', cyEnv.profileUrl);
+
+describe('CSIS Tests', function() {
+	it('visit CSIS', function() {
+		cy.visit(`${cyEnv.csisUrl}`);
+		cy.getCookies().should('not.be.empty')
+		cy.getCookies().should('have.length', 1)
 	});
-
-	it('login with CAS', function() { 
-		// the redirection from profiles to CSIS to ${cyEnv.baseUrl} will result in the dreaded 
-		// Refused to display 'https://csis.myclimateservice.eu/' in a frame because it set 'X-Frame-Options' to 'sameorigin'
-		// error :-(
-		// cy.visit(`${cyEnv.casUrl}/login?service=${cyEnv.baseUrl}/casservice`); 
-		cy.visit(`${cyEnv.casUrl}/login`); 
-		cy.get('#edit-username').type(Cypress.env('username'));
-		cy.get('#edit-password').type(Cypress.env('password'));
-		cy.get('#edit-submit').click();
-		// manually 'redirect' to CAS at CSIS
-		cy.visit(`${cyEnv.baseUrl}/casservice`); 
-	});
-
-	/**
-	 * runs once after all tests in the block
-	 */
-	after(() => {
-		cy.visit(`${cyEnv.casUrl}/logout`); 
-		cy.get('#block-mcs-profiles-theme-content > .content').contains('You have been logged out');
-	});
-
 });
 
 describe.skip('csis smoke tests', function() {

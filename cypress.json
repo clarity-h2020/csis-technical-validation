@@ -5,7 +5,7 @@
   "viewportWidth": 1000,
   "viewportHeight": 1000,
   "env": {
-    "baseUrl": "https://csis.myclimateservice.eu",
-    "casUrl": "https://profile.myclimateservices.eu/cas"
+    "csisUrl": "https://csis.myclimateservice.eu",
+    "profileUrl": "https://profile.myclimateservices.eu"
   }
 }
