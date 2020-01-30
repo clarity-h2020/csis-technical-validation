@@ -21,7 +21,11 @@
         {
             "type": "npm",
             "script": "start",
-            "problemMatcher": []
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
         }
     ]
 }
