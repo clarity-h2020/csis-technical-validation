@@ -3,6 +3,9 @@
 // import cy from 'cypress';
 let cyEnv = Cypress.env();
 
+// ugly workaround for https://github.com/clarity-h2020/csis-technical-validation/issues/5
+Cypress.config('baseUrl', cyEnv.baseUrl);
+
 /**
  * context() is identical to describe() and specify() is identical to it(), so choose whatever terminology works best for you.
  */
@@ -25,6 +28,8 @@ describe('CSIS local authentication tests', function() {
 		cy.get('#edit-pass').type(Cypress.env('password'));
 		cy.get('#edit-submit').click();
 		cy.get('.field--name-username > .field__item').contains(Cypress.env('username'));
+
+		cy.get('body').trigger('keydown', { key: "F8", code: "F8", which: 119 })
 	});
 
 	it('session cookie ist set', () => {

@@ -4,5 +4,7 @@
   "defaultCommandTimeout" : 5000,
   "viewportWidth": 1000,
   "viewportHeight": 1000,
-  "baseUrl": "https://csis.myclimateservice.eu/"
+  "env": {
+    "baseUrl": "https://csis.myclimateservice.eu"
+  }
 }
