@@ -20,7 +20,7 @@ pipeline {
         // sh 'npm ci'
         // sh 'export HOME=/var/jenkins_home/'
         
-        sh 'ya rn install --frozen-lockfile'       
+        sh 'yarn install --frozen-lockfile'       
         sh 'yarn run cypress verify'
 
         catchError {
