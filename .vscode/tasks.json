@@ -26,6 +26,11 @@
                 "kind": "build",
                 "isDefault": true
             }
+        },
+        {
+            "type": "npm",
+            "script": "cy:verify",
+            "problemMatcher": []
         }
     ]
 }

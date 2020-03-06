@@ -1,7 +1,6 @@
 /// <reference types="Cypress" />
 // import Cypress from 'cypress';
 // import cy from 'cypress';
-let cyEnv = Cypress.env();
 
 /**
  * context() is identical to describe() and specify() is identical to it(), so choose whatever terminology works best for you.
@@ -11,6 +10,10 @@ describe('myclimateservices CAS Tests', function() {
 	 * runs once before all tests in the block
 	 */
 	before(() => {
+		console.log(Cypress.env());
+		expect(Cypress.env('username')).not.to.be.undefined
+		expect(Cypress.env('password')).not.to.be.undefined
+
 		cy.visit('/cas/logout');
 		cy.get('#block-mcs-profiles-theme-content > .content').contains('You have been logged out');
 	});
@@ -21,6 +24,8 @@ describe('myclimateservices CAS Tests', function() {
 		// error :-(
 		// cy.visit(`${cyEnv.casUrl}/login?service=${cyEnv.baseUrl}/casservice`);
 		cy.visit('/cas/login');
+		// this requires presence of env variables, e.g. loaded from cypress.env.json 
+
 		cy.get('#edit-username').type(Cypress.env('username'));
 		cy.get('#edit-password').type(Cypress.env('password'));
 		cy.get('#edit-submit').click();
