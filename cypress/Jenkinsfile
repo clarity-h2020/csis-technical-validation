@@ -16,9 +16,9 @@ pipeline {
     // first stage installs node dependencies and Cypress binary
     stage('build') {
       steps {
-        // FIXE: This is some 'docjer magic'. Although already checked out by Jenkins, here inside of the container, there's still the old stuff
+        // FIXE: This is some 'docker magic'. Although already checked out by Jenkins, here inside of the container, there's still the old stuff
         // so we have to check oput again. Absolut ridiculous. 
-        checkout([$class: 'GitSCM', branches: [[name: '*/clarity-profiles']], browser: [$class: 'GithubWeb', repoUrl: 'https://github.com/clarity-h2020/csis-technical-validation/'], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'CleanBeforeCheckout']], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'clarity-ci-github', url: 'git@github.com:clarity-h2020/csis-technical-validation.git']]])  
+        checkout([$class: 'GitSCM', branches: [[name: '*/profiles-cypress']], browser: [$class: 'GithubWeb', repoUrl: 'https://github.com/clarity-h2020/csis-technical-validation/'], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'CleanBeforeCheckout']], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'clarity-ci-github', url: 'git@github.com:clarity-h2020/csis-technical-validation.git']]])  
         echo "Running build ${env.BUILD_ID} on ${env.JENKINS_URL}"
         // sh 'npm ci'
         // sh 'export HOME=/var/jenkins_home/'
