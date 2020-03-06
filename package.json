@@ -9,8 +9,7 @@
     "test": "cypress run",
     "cy": "$(npm bin)/cypress open",
     "cy:open": "cypress open",
-    "cy:verify": "cypress verify",
-    "cy:ci": "cypress run"
+    "cy:verify": "cypress verify"
   },
   "eslintConfig": {
     "extends": "react-app"
