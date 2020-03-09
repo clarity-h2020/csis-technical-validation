@@ -27,6 +27,9 @@ describe('CSIS view my studies', function() {
 		cy.location().should((loc) => {
 			expect(loc.pathname).to.contain('/studies') ;
 		});
+
+		cy.get('tbody > :nth-child(1) > .views-field-field-short-name').eq('AgiosDimitrios');
+		cy.get('tbody > :nth-child(2) > .views-field-field-short-name').eq('Alba Iulia');
 	});
 
 	/**
