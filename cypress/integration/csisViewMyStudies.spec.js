@@ -28,8 +28,8 @@ describe('CSIS view my studies', function() {
 			expect(loc.pathname).to.contain('/studies') ;
 		});
 
-		cy.get('tbody > :nth-child(1) > .views-field-field-short-name').eq('AgiosDimitrios');
-		cy.get('tbody > :nth-child(2) > .views-field-field-short-name').eq('Alba Iulia');
+		cy.get('tbody > :nth-child(1) > .views-field-field-short-name').contains('AgiosDimitrios');
+		cy.get('tbody > :nth-child(2) > .views-field-field-short-name').contains('Alba Iulia');
 	});
 
 	/**
