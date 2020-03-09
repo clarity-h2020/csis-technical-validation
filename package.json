@@ -9,8 +9,7 @@
     "test": "cypress run",
     "cy": "$(npm bin)/cypress open",
     "cy:open": "cypress open",
-    "cy:verify": "cypress verify",
-    "cy:ci": "cypress run"
+    "cy:verify": "cypress verify"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -28,7 +27,7 @@
     ]
   },
   "devDependencies": {
-    "cypress": "^3.8.3",
-    "eslint-plugin-cypress": "^2.8.1"
+    "cypress": "^4.1.0",
+    "eslint-plugin-cypress": "^2.10.3"
   }
 }

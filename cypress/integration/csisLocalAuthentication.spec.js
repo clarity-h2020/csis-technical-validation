@@ -14,10 +14,11 @@ describe('CSIS local authentication tests', function() {
 	 * runs once before all tests in the block
 	 */
 	before(() => {
-		// does not work with whitelisted cookies: https://github.com/clarity-h2020/csis-technical-validation/issues/6
-		cy.clearCookies();
-		//cy.clearCookie('SSESS7a689a227408b9e8f3b5db4bbea62abf');
-		cy.getCookies().should('be.empty');
+		expect(Cypress.env('username')).not.to.be.undefined
+		expect(Cypress.env('password')).not.to.be.undefined
+
+		// If you're not logged-in, this yields '403 - Forbidden (text/html)':
+		//cy.visit('/user/logout');
 	});
 
 	it('login with developer login', function() {
@@ -32,7 +33,7 @@ describe('CSIS local authentication tests', function() {
 		cy.get('body').trigger('keydown', { key: "F8", code: "F8", which: 119 })
 	});
 
-	it('session cookie ist set', () => {
+	it('session cookie is set', () => {
 		cy.getCookies().should('not.be.empty');
 		cy.getCookies().should('have.length', 1);
 	});
