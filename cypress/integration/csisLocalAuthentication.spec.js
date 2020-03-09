@@ -47,6 +47,7 @@ describe('CSIS local authentication tests', function() {
 	});
 
 	it('still logged in', function() {
+		const username = Cypress.env('username');
 		cy.visit('/user/');
 		cy.get('.field--name-username > .field__item').contains(username);
 	});

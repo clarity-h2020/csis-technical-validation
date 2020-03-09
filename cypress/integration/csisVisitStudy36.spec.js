@@ -6,7 +6,7 @@ let cyEnv = Cypress.env();
 // ugly workaround for https://github.com/clarity-h2020/csis-technical-validation/issues/5
 Cypress.config('baseUrl', cyEnv.baseUrl);
 
-describe('CSIS view my studies', function() {
+describe('CSIS visit Study 36', function() {
 	before(() => {
 		// TODO: move this common login task into a plugin, etc.
 		//cy.clearCookies(); // this does not work
@@ -46,7 +46,7 @@ describe('CSIS view my studies', function() {
 		});
 	});
 
-	it.('Study #35 >> Study Tab', function() {
+	it('Study #35 >> Study Tab', function() {
 		cy.visit('/study/35/view/intro');
 		cy.visit('/study/35/view/team');
 		cy.visit('/study/35/view/context');
@@ -55,7 +55,7 @@ describe('CSIS view my studies', function() {
 		cy.visit('/study/35/view/summary');
 	});
 
-	it.only('Study #35 >> HC Tab', function() {
+	it('Study #35 >> HC Tab', function() {
 		cy.visit('/study/35');
 		cy.get('div > .nav > :nth-child(1) > .nav-link').click();
 		cy.location().should((loc) => {
@@ -93,7 +93,8 @@ describe('CSIS view my studies', function() {
 		});
     });
     
-    it('Study #35 >> HC-LE Tab', function() {
+    // TODO
+    it.skip('Study #35 >> HC-LE Tab', function() {
 		cy.visit('/study/35');
 		cy.get('div > .nav > :nth-child(1) > .nav-link').click();
 		cy.location().should((loc) => {

@@ -30,23 +30,13 @@ describe('CSIS view my studies', function() {
 		cy.get('#edit-name').type(username);
 		cy.get('#edit-pass').type(password, {log: false});
 		cy.get('#edit-submit').click();
-		cy.get('.field--name-username > .field__item').contains(Cypress.env('username'));
+		cy.get('.field--name-username > .field__item').contains(username);
 
 		cy.getCookies().should('not.be.empty');
 		cy.getCookies().should('have.length', 1);
 	});
 
-    // Disabled. See 
-	it.skip('Study #35 >> Study Tab', function() {
-		cy.visit('/study/35/view/intro');
-		cy.visit('/study/35/view/team');
-		cy.visit('/study/35/view/context');
-		cy.visit('/study/35/view/area');
-		cy.visit('/study/35/view/data');
-		cy.visit('/study/35/view/summary');
-	});
-
-	it.only('Study #35 >> Study Area Map >> Include in Report', function() {
+	it.skip('Study #35 >> Study Area Map >> Include in Report', function() {
 		cy.visit('/study/35/view/area');
 		// include in report ....
 		cy.get('.token-field-check-member > p > .btn').click();
