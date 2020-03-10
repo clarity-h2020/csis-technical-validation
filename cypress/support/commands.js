@@ -76,6 +76,9 @@ Cypress.Commands.add('loginToCSIS', () => {
 });
 
 Cypress.Commands.add('logoutFromCSIS', () => {
+    // ugly workaround for https://github.com/clarity-h2020/csis-technical-validation/issues/13
+    cy.wait(500);
+
     cy.visit('/user/logout');
     cy.get('#block-clarity-useraccountmenu > .menu > .menu-item > a').contains('Login');
     cy.clearCookies();
