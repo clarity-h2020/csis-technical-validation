@@ -6,16 +6,16 @@ let cyEnv = Cypress.env();
 // ugly workaround for https://github.com/clarity-h2020/csis-technical-validation/issues/5
 Cypress.config('baseUrl', cyEnv.baseUrl);
 
-describe('CSIS view my studies', function() {
+describe('CSIS view my studies', function () {
 	before(() => {
 		cy.loginToCSIS();
 	});
 
-	it('view my studies', function() {
+	it('view my studies', function () {
 		cy.visit('/user/');
 		cy.get('.tabs > :nth-child(2) > a').click();
 		cy.location().should((loc) => {
-			expect(loc.pathname).to.contain('/studies') ;
+			expect(loc.pathname).to.contain('/studies');
 		});
 
 		cy.get('tbody > :nth-child(1) > .views-field-field-short-name').contains('AgiosDimitrios');
@@ -23,7 +23,7 @@ describe('CSIS view my studies', function() {
 
 		cy.get('tbody > :nth-child(1) > .views-field-label > a').click();
 		cy.location().should((loc) => {
-			expect(loc.pathname).to.contain('/study/35/view/intro') ;
+			expect(loc.pathname).to.contain('/study/35/view/intro');
 		});
 	});
 
