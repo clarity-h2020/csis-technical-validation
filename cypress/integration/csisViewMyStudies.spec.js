@@ -8,26 +8,7 @@ Cypress.config('baseUrl', cyEnv.baseUrl);
 
 describe('CSIS view my studies', function() {
 	before(() => {
-		// TODO: move this common login task into a plugin, etc.
-		//cy.clearCookies(); // sometimes, this does not work :-()
-		//cy.getCookies().should('be.empty');
-
-		const username = Cypress.env('username');
-		const password = Cypress.env('password');
-		
-		expect(username, 'username was set').to.be.a('string').and.not.be.empty
-        if (typeof password !== 'string' || !password) {
-            throw new Error('Missing password value, set using CYPRESS_password=...');
-        }  
-
-		cy.visit('user/login');
-		cy.get('#edit-name').type(username);
-		cy.get('#edit-pass').type(password);
-		cy.get('#edit-submit').click();
-		cy.get('.field--name-username > .field__item').contains(username);
-
-		cy.getCookies().should('not.be.empty');
-		cy.getCookies().should('have.length', 1);
+		cy.loginToCSIS();
 	});
 
 	it('view my studies', function() {
@@ -50,10 +31,6 @@ describe('CSIS view my studies', function() {
 	 * runs once after all tests in the block
 	 */
 	after(() => {
-		// TODO: move this common logout task into a plugin, etc.
-		cy.visit('/user/logout');
-		cy.get('#block-clarity-useraccountmenu > .menu > .menu-item > a').contains('Login');
-		cy.clearCookies();
-		cy.getCookies().should('be.empty');
+		cy.logoutFromCSIS();
 	});
 });

@@ -10,8 +10,8 @@ describe('CSIS view my studies', function() {
 	before(() => {
         // TODO: move this common login task into a plugin, etc.
         // TODO: avoid UI login as described here: https://glebbahmutov.com/blog/keep-passwords-secret-in-e2e-tests/
-		cy.clearCookies(); // this does not work
-        cy.getCookies().should('be.empty');
+		cy.reallyClearCookiesCypressIssue781();
+		cy.getCookies().should('be.empty');
         
         const username = Cypress.env('username');
         const password = Cypress.env('password');
@@ -48,10 +48,6 @@ describe('CSIS view my studies', function() {
 	 * runs once after all tests in the block
 	 */
 	after(() => {
-		// TODO: move this common logout task into a plugin, etc.
-		cy.visit('/user/logout');
-		cy.get('#block-clarity-useraccountmenu > .menu > .menu-item > a').contains('Login');
-		cy.clearCookies();
-		cy.getCookies().should('be.empty');
+		cy.logoutFromCSIS();
 	});
 });

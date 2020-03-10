@@ -2,8 +2,8 @@
   "$schema": "https://on.cypress.io/cypress.schema.json",
   "projectId": "89tqac",
   "defaultCommandTimeout" : 5000,
-  "viewportWidth": 1000,
-  "viewportHeight": 1000,
+  "viewportWidth": 1280,
+  "viewportHeight": 960,
   "env": {
     "baseUrl": "https://csis.myclimateservice.eu"
   }

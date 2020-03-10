@@ -16,6 +16,9 @@ describe('CSIS local authentication tests', function() {
 	before(() => {
 		const username = Cypress.env('username');
 		const password = Cypress.env('password');
+
+		cy.reallyClearCookiesCypressIssue781();
+		cy.getCookies().should('be.empty');
 		
 		expect(username, 'username was set').to.be.a('string').and.not.be.empty
         if (typeof password !== 'string' || !password) {
@@ -56,9 +59,6 @@ describe('CSIS local authentication tests', function() {
 	 * runs once after all tests in the block
 	 */
 	after(() => {
-		cy.visit('/user/logout');
-		cy.get('#block-clarity-useraccountmenu > .menu > .menu-item > a').contains('Login');
-		cy.clearCookies();
-		cy.getCookies().should('be.empty');
+		cy.logoutFromCSIS();
 	});
 });
