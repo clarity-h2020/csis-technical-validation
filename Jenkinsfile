@@ -2,8 +2,7 @@ pipeline {
   agent {
     // this image provides everything needed to run Cypress
     docker {
-      image 'cypress/base:10'//cismet/cypress-base-10-with-jenkins-user:1.0'
-      //image 'cypress/browsers:node11.13.0-chrome73'
+      image 'cypress/included:4.1.0'
       args '--ipc=host -e HOME=/var/jenkins_home/'
     }
   }
