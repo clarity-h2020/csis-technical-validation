@@ -225,7 +225,7 @@ describe('CSIS visit Study 36', function () {
 	/**
 	 * Identify Adaptation Options
 	 */
-	it('Study #35 >> Identify Adaptation Options', function () {
+	it.only('Study #35 >> Identify Adaptation Options', function () {
 		cy.visit('/study/35');
 		cy.get('div > .nav > :nth-child(6) > .nav-link').click();
 		cy.location().should((loc) => {
@@ -255,6 +255,7 @@ describe('CSIS visit Study 36', function () {
 
 	/**
 	 * runs once after all tests in the block
+	 * Naming Things: This method should be called afterAll!
 	 */
 	after(() => {
 		cy.logoutFromCSIS();
