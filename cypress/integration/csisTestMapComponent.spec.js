@@ -21,7 +21,7 @@ describe('CSIS test Map Component', function () {
 	 * runs once after all tests in the block
 	 */
     after(() => {
-        //cy.logoutFromCSIS();
+        cy.logoutFromCSIS();
     });
 
 });
