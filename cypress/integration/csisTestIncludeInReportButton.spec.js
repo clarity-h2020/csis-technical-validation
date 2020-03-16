@@ -36,12 +36,30 @@ describe('CSIS view my studies', function() {
 		cy.getCookies().should('have.length', 1);
 	});
 
-	it.skip('Study #35 >> Study Area Map >> Include in Report', function() {
+	it('Study #35 >> Study Area Map >> Include in Report', function() {
 		cy.visit('/study/35/view/area');
 		// include in report ....
+		cy.get('.token-field-check-member > p > .btn').should('exist');
 		cy.get('.token-field-check-member > p > .btn').click();
-		cy.visit('/study/35/view/summary');
-		cy.get('.use-ajax').should('exist');
+
+		// used to work, now doesn't. :-(
+		//cy.get('#ui-id-1').contains('Edit Report image Report image');
+
+		// Although they exist in DOM, cypress is not able to find any of these:
+		//cy.get('.ui-dialog-titlebar');
+		//cy.get('.js-text-full text-full form-text');
+		//cy.get('.js-text-full text-full form-text[data-test-id="edit-title-0-value"]');
+
+		// sometimes works, sometimes doens't: 
+		//cy.get('#drupal-modal')
+
+		// this doens't work either:
+		//cy.get('#drupal-modal').find('input[data-test-id="edit-title-0-value"]').should('exist');
+
+		cy.get('.ui-dialog-buttonset > .button--danger').should('exist');
+		cy.get('.ui-dialog-buttonset > .button--danger').click();
+		cy.get('#edit-submit').click();
+		cy.get('[data-drupal-messages=""] > .messages').contains('The Report image Report image has been deleted.');
 	});
 
 	/**
