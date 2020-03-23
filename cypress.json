@@ -1,6 +1,6 @@
 {
   "$schema": "https://on.cypress.io/cypress.schema.json",
-  "projectId": "89tqac",
+  "projectId": "",
   "defaultCommandTimeout" : 10000,
   "viewportWidth": 1280,
   "viewportHeight": 960,

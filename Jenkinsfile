@@ -28,7 +28,7 @@ pipeline {
         }
       }
     }
-    stage('run myclimateservices CSIS smoketests') {
+    stage('run myclimateservices EMIKAT smoketests') {
       steps {
         echo "Running build ${env.BUILD_ID}"
         sh "yarn run cypress run --env username=$CLARTIY_CSIS_CREDENTIALS_USR,password=$CLARTIY_CSIS_CREDENTIALS_PSW"

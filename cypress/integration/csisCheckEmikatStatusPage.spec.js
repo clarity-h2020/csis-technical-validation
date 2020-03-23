@@ -6,15 +6,13 @@ let cyEnv = Cypress.env();
 // ugly workaround for https://github.com/clarity-h2020/csis-technical-validation/issues/5
 Cypress.config('baseUrl', cyEnv.baseUrl);
 
-describe('CSIS test Scenario Analysis Component', function () {
+describe('EMIKAT Status', function () {
     before(() => {
-        // this does not work. See 
         cy.loginToCSIS();
     });
 
-    // wontfix: https://github.com/clarity-h2020/csis-technical-validation/issues/15
-    it.skip('View Risk and Impact Map', function () {
-        cy.visit('/study/35/step/1528/view/scenario-analysis');
+    it('Check EMIKAT Status Page', function () {
+        cy.visit('/maintenance/check-emikat-results');
     });
 
 	/**
@@ -23,5 +21,4 @@ describe('CSIS test Scenario Analysis Component', function () {
     after(() => {
         cy.logoutFromCSIS();
     });
-
 });
