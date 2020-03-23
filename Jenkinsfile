@@ -31,7 +31,7 @@ pipeline {
     stage('run myclimateservices CSIS smoketests') {
       steps {
         echo "Running build ${env.BUILD_ID}"
-        sh "yarn run cypress run --record --key 8b913f1e-5d36-44f1-973f-8d99311ba3eb --env username=$CLARTIY_CSIS_CREDENTIALS_USR,password=$CLARTIY_CSIS_CREDENTIALS_PSW"
+        sh "yarn run cypress run --env username=$CLARTIY_CSIS_CREDENTIALS_USR,password=$CLARTIY_CSIS_CREDENTIALS_PSW"
         catchError {
             echo "Build ${env.BUILD_ID} failed"           
         }
