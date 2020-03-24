@@ -23,7 +23,22 @@ describe('CSIS test Map Component', function () {
         //cy.get(':nth-child(5) > .rlglc-option > .rlglc-title')
 
         // mousemove?! See https://stackoverflow.com/a/56704903
-        cy.get('[data-layername="Heat_mortality risk/impact screening"]').trigger('mousemove').click();
+        // does not work on ci: https://github.com/clarity-h2020/csis-technical-validation/issues/22#issuecomment-603041686
+        //cy.get('[data-layername="Heat_mortality risk/impact screening"]').trigger('mousemove').click();
+        //cy.get('[style="display: inline; bottom: 50px; position: absolute; z-index: 1000; left: 25px;"] > div > img').should('exist');
+
+        // does not work at all. why? 
+        //cy.get('[data-layername="Heat_mortality risk/impact screening"]').check();
+        //cy.get('[data-layername="Heat_mortality risk/impact screening"]').should('be.checked');
+
+        // wait for layers and element to appear
+        cy.get('[data-layername="Heat_mortality risk/impact screening"]');
+        // find last option element
+        cy.get('[type="radio"]').last().check();
+        cy.get('[type="radio"]').last().should('be.checked');
+        // this is ridiculous: .should('be.checked'); on element works but check(); does not
+        cy.get('[data-layername="Heat_mortality risk/impact screening"]').should('be.checked');
+
         cy.get('[style="display: inline; bottom: 50px; position: absolute; z-index: 1000; left: 25px;"] > div > img').should('exist');
     });
 
