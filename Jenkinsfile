@@ -28,7 +28,7 @@ pipeline {
         }
       }
     }
-    stage('run myclimateservices profiles smoketests') {
+    stage('run health-check-cypress') {
       steps {
         echo "Running build ${env.BUILD_ID}"
         sh "yarn run cypress run --env username=$CLARTIY_PROFILES_CREDENTIALS_USR,password=$CLARTIY_PROFILES_CREDENTIALS_PSW"
