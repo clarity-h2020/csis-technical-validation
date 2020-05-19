@@ -14,8 +14,8 @@ describe('EMIKAT Status', function () {
     it('Check last EMIKAT calculations test', function () {
         cy.visit('/maintenance/check-emikat-results');
         cy.get('.page-title').contains('Results for Emikat test Study');
-        cy.get('.total-batchjob-count').should('have.text', '13');
-        cy.get('.batchjobs').find('li').should('have.length', 13);
+        cy.get('.total-batchjob-count').should('have.text', '14');
+        cy.get('.batchjobs').find('li').should('have.length', 14);
         cy.get('.total-warning-count').should('have.text', '0');
 
         // It seems that there is no built-in convenient method to skip all remaining tests   
