@@ -2,6 +2,7 @@
 // import Cypress from 'cypress';
 // import cy from 'cypress';
 let cyEnv = Cypress.env();
+const EMIKAT_BATCHJOBS = 15;
 
 // ugly workaround for https://github.com/clarity-h2020/csis-technical-validation/issues/5
 Cypress.config('baseUrl', cyEnv.baseUrl);
@@ -14,8 +15,8 @@ describe('EMIKAT Status', function () {
     it('Check last EMIKAT calculations test', function () {
         cy.visit('/maintenance/check-emikat-results');
         cy.get('.page-title').contains('Results for Emikat test Study');
-        cy.get('.total-batchjob-count').should('have.text', '14');
-        cy.get('.batchjobs').find('li').should('have.length', 14);
+        cy.get('.total-batchjob-count').should('have.text', EMIKAT_BATCHJOBS.toString());
+        cy.get('.batchjobs').find('li').should('have.length', EMIKAT_BATCHJOBS);
         cy.get('.total-warning-count').should('have.text', '0');
 
         // It seems that there is no built-in convenient method to skip all remaining tests   
