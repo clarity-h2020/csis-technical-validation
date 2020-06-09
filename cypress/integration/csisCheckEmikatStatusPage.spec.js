@@ -12,7 +12,21 @@ describe('EMIKAT Status', function () {
         cy.loginToCSIS();
     });
 
-    it('Check last EMIKAT calculations test', function () {
+    it(`Check ${EMIKAT_BATCHJOBS} EMIKAT BATCH JOBS`, function() {
+        cy.visit('/maintenance/check-emikat-results');
+        cy.get('.page-title').contains('Results for Emikat test Study');
+        cy.get('.batchjobs > .batchjob-ok').should('have.length.of.at.least', EMIKAT_BATCHJOBS);
+
+        cy.visit('/maintenance/trigger-emikat-test');
+        cy.get('.trigger-failure').should('not.exist');
+        cy.get('.trigger-success').contains('Updates in Test Study were successfully sent to Emikat. ');
+    });
+
+    /**
+     * Skipped due to work in Progress.
+     * See https://github.com/clarity-h2020/csis-technical-validation/issues/48#issuecomment-641120897
+     */
+    it.skip('Check last EMIKAT calculations test', function () {
         cy.visit('/maintenance/check-emikat-results');
         cy.get('.page-title').contains('Results for Emikat test Study');
         cy.get('.total-batchjob-count').should('have.text', EMIKAT_BATCHJOBS.toString());
