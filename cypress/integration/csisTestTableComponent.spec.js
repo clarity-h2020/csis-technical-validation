@@ -17,7 +17,8 @@ describe('CSIS test Table Component', function () {
         cy.get('.-next > .-btn').click();
         cy.get('.select-wrap > select').select('100');
         // FIXME: give download button an id!
-        cy.get('main > :nth-child(3) > button').click();
+        //cy.get('main > :nth-child(3) > button').click();
+        cy.get('button[id="download"]').click();
     });
 
 	/**
