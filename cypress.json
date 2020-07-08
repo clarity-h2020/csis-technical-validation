@@ -5,6 +5,6 @@
   "viewportWidth": 1280,
   "viewportHeight": 960,
   "env": {
-    "baseUrl": "https://csis.myclimateservice.eu"
+    "baseUrl": "https://csis-dev.myclimateservice.eu"
   }
 }
