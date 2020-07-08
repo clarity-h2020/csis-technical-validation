@@ -13,7 +13,7 @@ describe('CSIS test Map Component', function () {
     });
 
     it('View Risk and Impact Map', function () {
-        cy.visit('/apps/map-component/build/RiskAndImpactMap/?host=https://csis.myclimateservice.eu&study_uuid=ae028e6a-ba85-4358-9c4a-4f29faa2ca92&study_area=POLYGON((23.706361%2037.918698,23.706361%2037.957689,23.780862%2037.957689,23.780862%2037.918698,23.706361%2037.918698))&emikat_id=3189&datapackage_uuid=2434ce93-93d4-4ca2-8618-a2de768d3f16&write_permissions=1&study_variant=BASELINE&time_period=20410101-20701231&emissions_scenario=rcp45&event_frequency=Rare&grouping_tag=taxonomy_term--hazards');
+        cy.visit(`/apps/map-component/build/RiskAndImpactMap/?host=${cyEnv.baseUrl}&study_uuid=ae028e6a-ba85-4358-9c4a-4f29faa2ca92&study_area=POLYGON((23.706361%2037.918698,23.706361%2037.957689,23.780862%2037.957689,23.780862%2037.918698,23.706361%2037.918698))&emikat_id=3189&datapackage_uuid=2434ce93-93d4-4ca2-8618-a2de768d3f16&write_permissions=1&study_variant=BASELINE&time_period=20410101-20701231&emissions_scenario=rcp45&event_frequency=Rare&grouping_tag=taxonomy_term--hazards`);
         cy.get('.rlglc-a').click();
         cy.get('[data-layername="Heat_mortality risk/impact screening"]');
     });
@@ -22,7 +22,7 @@ describe('CSIS test Map Component', function () {
      * fubar: https://github.com/clarity-h2020/csis-technical-validation/issues/22
      */
     it.skip('View Risk and Impact Map', function () {
-        cy.visit('/apps/map-component/build/RiskAndImpactMap/?host=https://csis.myclimateservice.eu&study_uuid=ae028e6a-ba85-4358-9c4a-4f29faa2ca92&study_area=POLYGON((23.706361%2037.918698,23.706361%2037.957689,23.780862%2037.957689,23.780862%2037.918698,23.706361%2037.918698))&emikat_id=3189&datapackage_uuid=2434ce93-93d4-4ca2-8618-a2de768d3f16&write_permissions=1&study_variant=BASELINE&time_period=20410101-20701231&emissions_scenario=rcp45&event_frequency=Rare&grouping_tag=taxonomy_term--hazards');
+        cy.visit(`/apps/map-component/build/RiskAndImpactMap/?host=${cyEnv.baseUrl}&study_uuid=ae028e6a-ba85-4358-9c4a-4f29faa2ca92&study_area=POLYGON((23.706361%2037.918698,23.706361%2037.957689,23.780862%2037.957689,23.780862%2037.918698,23.706361%2037.918698))&emikat_id=3189&datapackage_uuid=2434ce93-93d4-4ca2-8618-a2de768d3f16&write_permissions=1&study_variant=BASELINE&time_period=20410101-20701231&emissions_scenario=rcp45&event_frequency=Rare&grouping_tag=taxonomy_term--hazards`);
         cy.get('.rlglc-a').click();
 
         // does not work despite the documentation tells otherwise https://docs.cypress.io/api/commands/get.html#Selector:
@@ -54,7 +54,7 @@ describe('CSIS test Map Component', function () {
 
     // does not work: opening both layer widgets at the same time
     it.skip('View Synchronised Risk and Impact Map', function () {
-        cy.visit('/apps/map-component/build/SynchronisedRiskAndImpactMap/?host=https://csis.myclimateservice.eu&study_uuid=ae028e6a-ba85-4358-9c4a-4f29faa2ca92&study_area=POLYGON((23.706361%2037.918698,23.706361%2037.957689,23.780862%2037.957689,23.780862%2037.918698,23.706361%2037.918698))&emikat_id=3189&datapackage_uuid=2434ce93-93d4-4ca2-8618-a2de768d3f16&write_permissions=1&study_variant=BASELINE&time_period=20410101-20701231&emissions_scenario=rcp45&event_frequency=Rare&grouping_tag=taxonomy_term--hazards');
+        cy.visit(`/apps/map-component/build/SynchronisedRiskAndImpactMap/?host=${cyEnv.baseUrl}&study_uuid=ae028e6a-ba85-4358-9c4a-4f29faa2ca92&study_area=POLYGON((23.706361%2037.918698,23.706361%2037.957689,23.780862%2037.957689,23.780862%2037.918698,23.706361%2037.918698))&emikat_id=3189&datapackage_uuid=2434ce93-93d4-4ca2-8618-a2de768d3f16&write_permissions=1&study_variant=BASELINE&time_period=20410101-20701231&emissions_scenario=rcp45&event_frequency=Rare&grouping_tag=taxonomy_term--hazards`);
         cy.get('.rlglc-a').click({ multiple: true });
 
         // does not work despite the documentation tells otherwise https://docs.cypress.io/api/commands/get.html#Selector:
