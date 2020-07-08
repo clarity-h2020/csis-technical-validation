@@ -13,7 +13,9 @@ describe('CSIS view my studies', function () {
 
 	it('view my studies', function () {
 		cy.visit('/user/');
-		cy.get('.tabs > :nth-child(2) > a').click();
+		// edit link visible, see
+		// https://github.com/clarity-h2020/docker-drupal/issues/158#issuecomment-654391894
+		cy.get('.tabs > :nth-child(3) > a').click();
 		cy.location().should((loc) => {
 			expect(loc.pathname).to.contain('/studies');
 		});
