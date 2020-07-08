@@ -225,7 +225,7 @@ describe('CSIS visit Study 36', function () {
 	/**
 	 * Identify Adaptation Options
 	 */
-	it.only('Study #35 >> Identify Adaptation Options', function () {
+	it('Study #35 >> Identify Adaptation Options', function () {
 		cy.visit('/study/35');
 		cy.get('div > .nav > :nth-child(6) > .nav-link').click();
 		cy.location().should((loc) => {

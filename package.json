@@ -1,6 +1,6 @@
 {
   "name": "csis-cypress",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "private": true,
   "dependencies": {},
   "scripts": {
@@ -27,7 +27,7 @@
     ]
   },
   "devDependencies": {
-    "cypress": "^4.2.0",
-    "eslint-plugin-cypress": "^2.10.3"
+    "cypress": "^4.10.0",
+    "eslint-plugin-cypress": "^2.11.1"
   }
 }
