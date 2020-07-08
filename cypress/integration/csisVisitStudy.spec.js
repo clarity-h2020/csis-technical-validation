@@ -237,10 +237,10 @@ describe('CSIS visit Study 36', function () {
 			expect(loc.pathname, 'Table').to.contain('/view/table');
 		});
 
-		cy.get('.field-content > .nav > :nth-child(3) > .nav-link').click();
-		cy.location().should((loc) => {
-			expect(loc.pathname, 'Data').to.contain('/view/external');
-		});
+		//cy.get('.field-content > .nav > :nth-child(3) > .nav-link').click();
+		//cy.location().should((loc) => {
+		//	expect(loc.pathname, 'Data').to.contain('/view/external');
+		//});
 
 		cy.get('.field-content > .nav > :nth-child(4) > .nav-link').click();
 		cy.location().should((loc) => {
