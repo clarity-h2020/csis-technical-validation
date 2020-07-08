@@ -6,7 +6,7 @@ let cyEnv = Cypress.env();
 // ugly workaround for https://github.com/clarity-h2020/csis-technical-validation/issues/5
 Cypress.config('baseUrl', cyEnv.baseUrl);
 
-describe('CSIS view my studies', function() {
+describe('CSIS DEV view my studies', function() {
 	before(() => {
         // TODO: move this common login task into a plugin, etc.
         // TODO: avoid UI login as described here: https://glebbahmutov.com/blog/keep-passwords-secret-in-e2e-tests/

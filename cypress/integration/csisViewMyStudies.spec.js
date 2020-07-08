@@ -6,7 +6,7 @@ let cyEnv = Cypress.env();
 // ugly workaround for https://github.com/clarity-h2020/csis-technical-validation/issues/5
 Cypress.config('baseUrl', cyEnv.baseUrl);
 
-describe('CSIS view my studies', function () {
+describe('CSIS DEV view my studies', function () {
 	before(() => {
 		cy.loginToCSIS();
 	});

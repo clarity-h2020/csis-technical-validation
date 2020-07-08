@@ -9,7 +9,7 @@ Cypress.config('baseUrl', cyEnv.baseUrl);
 /**
  * context() is identical to describe() and specify() is identical to it(), so choose whatever terminology works best for you.
  */
-describe('CSIS local authentication tests', function () {
+describe('CSIS DEV local authentication tests', function () {
 	/**
 	 * runs once before all tests in the block
 	 */
