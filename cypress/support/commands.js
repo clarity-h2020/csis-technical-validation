@@ -81,7 +81,7 @@ Cypress.Commands.add('logoutFromCSIS', () => {
 
     cy.visit('/user/logout');
     // 'Log in' in PROD, 'Login' in DEV. WTF?
-    cy.get('#block-clarity-useraccountmenu > .menu > .menu-item > a').contains('Log in');
+    cy.get('#block-clarity-useraccountmenu > .menu > .menu-item > a').contains('Login');
     // This does not work: See https://github.com/clarity-h2020/csis-technical-validation/issues/6
     cy.clearCookies();
     // Skip the check. :-( 
