@@ -15,7 +15,7 @@ describe('CSIS DEV test Map Component', function () {
     it('View Risk and Impact Map', function () {
         cy.visit(`/apps/map-component/build/RiskAndImpactMap/?host=${cyEnv.baseUrl}&study_uuid=ae028e6a-ba85-4358-9c4a-4f29faa2ca92&study_area=POLYGON((23.706361%2037.918698,23.706361%2037.957689,23.780862%2037.957689,23.780862%2037.918698,23.706361%2037.918698))&emikat_id=3189&datapackage_uuid=2434ce93-93d4-4ca2-8618-a2de768d3f16&write_permissions=1&study_variant=BASELINE&time_period=20410101-20701231&emissions_scenario=rcp45&event_frequency=Rare&grouping_tag=taxonomy_term--hazards`);
         cy.get('.rlglc-a').click();
-        cy.get('[data-layername="Heat_mortality risk/impact screening"]');
+        cy.get('[data-layername="number_of affected persons"]');
     });
 
     /**
@@ -41,13 +41,13 @@ describe('CSIS DEV test Map Component', function () {
         //cy.get('[data-layername="Heat_mortality risk/impact screening"]').should('be.checked');
 
         // wait for layers and element to appear
-        cy.get('[data-layername="Heat_mortality risk/impact screening"]');
+        cy.get('[data-layername="number_of affected persons"]');
         // find last option element
         cy.get('[type="radio"]').last().check();
         // still does not work on CI: https://github.com/clarity-h2020/csis-technical-validation/issues/22#issuecomment-603063616
         cy.get('[type="radio"]').last().should('be.checked');
         // this is ridiculous: .should('be.checked'); on element works but check(); does not
-        cy.get('[data-layername="Heat_mortality risk/impact screening"]').should('be.checked');
+        cy.get('[data-layername="number_of affected persons"]').should('be.checked');
 
         cy.get('[style="display: inline; bottom: 50px; position: absolute; z-index: 1000; left: 25px;"] > div > img').should('exist');
     });
