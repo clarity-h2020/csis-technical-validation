@@ -19,7 +19,7 @@ The following CSIS Services [are monitored](https://health-check.clarity.cismet.
 - [EMIKAT REST API](https://service.emikat.at/EmiKatTst/swagger/index.html)
 - [EMIKAT GeoServer](https://service.emikat.at/geoserver/clarity)
 - [ATOS GeoServer](https://geoserver.myclimateservice.eu/)
-- [CLARTIY CKAN](https://ckan.myclimateservice.eu/)
+- [CLARITY CKAN](https://ckan.myclimateservice.eu/)
 
 ![image](https://user-images.githubusercontent.com/1788226/89428629-e6e50600-d73c-11ea-8e1a-01bb83b60947.png)
 
