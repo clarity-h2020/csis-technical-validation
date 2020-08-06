@@ -2,7 +2,7 @@
   "$schema": "https://on.cypress.io/cypress.schema.json",
   "projectId": "89tqac",
   "defaultCommandTimeout" : 30000,
-  "pageLoadTimeout" : 90000ms,
+  "pageLoadTimeout" : 90000,
   "viewportWidth": 1280,
   "viewportHeight": 960,
   "env": {
