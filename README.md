@@ -12,7 +12,7 @@ Actual tools used for implementing CSIS technical validation concept include
 
 ## Service Monitoring
 
-The following CSIS Services [are monitored](https://health-check.clarity.cismet.de/) with help of [statping](https://github.com/statping/statping):
+The following CSIS Services [are monitored](https://health-check.clarity.cismet.de/) with help of [statping](https://github.com/statping/statping), a status page and monitoring server for websites, applications and web services:
 
 - [CSIS Production System](https://csis.myclimateservice.eu/)
 - [CSIS Development System](https://csis-dev.myclimateservice.eu/)
@@ -23,11 +23,11 @@ The following CSIS Services [are monitored](https://health-check.clarity.cismet.
 
 ![image](https://user-images.githubusercontent.com/1788226/89428629-e6e50600-d73c-11ea-8e1a-01bb83b60947.png)
 
-The [monitoring service](https://health-check.clarity.cismet.de/) is deployed as docker container on a dedicated machine. It is itself again monitored by a [cypress.io](https://www.cypress.io/)-based [test specification](https://github.com/clarity-h2020/csis-technical-validation/tree/health-check-cypress) that is executed on [Jenkins CI](https://ci.cismet.de/view/CLARITY/). A [new issue](https://github.com/clarity-h2020/csis-technical-validation/issues?q=is%3Aissue+is%3Aopen+label%3ACI) is posted in repository [csis-technical-validation](https://github.com/clarity-h2020/csis-technical-validation/) when one of the monitored services fails.
+The staping [monitoring service](https://health-check.clarity.cismet.de/) is deployed as docker container on a dedicated machine. It is itself again monitored by a [cypress.io](https://www.cypress.io/)-based [test specification](https://github.com/clarity-h2020/csis-technical-validation/tree/health-check-cypress) that is executed on [Jenkins CI](https://ci.cismet.de/view/CLARITY/). Developers are notified by email and a [new issue](https://github.com/clarity-h2020/csis-technical-validation/issues?q=is%3Aissue+is%3Aopen+label%3ACI) is posted in repository [csis-technical-validation](https://github.com/clarity-h2020/csis-technical-validation/) when one of the monitored services fails.
 
 ## Unit tests
 
-Automated unit tests for several apps that are build on [Jenkins CI](https://ci.cismet.de/view/CLARITY/) and that deployed together with [CSIS Drupal Containers](https://github.com/clarity-h2020/docker-drupal) are performed on Jenkins CI. These include:
+Automated unit tests for several apps that are build on [Jenkins CI](https://ci.cismet.de/view/CLARITY/) and that are deployed together with [CSIS Drupal Containers](https://github.com/clarity-h2020/docker-drupal) are performed on Jenkins CI. These include:
 
 - [CSIS Helpers JS Module](https://github.com/clarity-h2020/csis-helpers-js/)
 - [Map Component](https://github.com/clarity-h2020/map-component)
@@ -36,7 +36,7 @@ Automated unit tests for several apps that are build on [Jenkins CI](https://ci.
 
 ![build](https://user-images.githubusercontent.com/1788226/89201824-5d093180-d5b2-11ea-8775-773a971e10d3.gif)
 
-If any of the unit tests fails, a new issue is posted in the respective repositories.
+If any of the [unit tests](https://github.com/clarity-h2020/csis-helpers-js/#tests) fails, developers are notified by email and a new issue is posted in the respective repositories.
 
 ## Integration Tests
 
