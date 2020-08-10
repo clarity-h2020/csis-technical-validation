@@ -52,17 +52,18 @@ pipeline {
         }
         failure {
             emailext attachLog: true, 
-				to: "dev@cismet.de", 
-				subject: "Build failed in Jenkins: ${currentBuild.fullDisplayName}",
+				to: "clarity-dev@lists.atosresearch.eu", 
+				subject: "CSIS DEV UI Integration Tests failed: ${currentBuild.fullDisplayName}",
                 body: """<p>FAILED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]':</p>
-                <p>Check console output at &QUOT;<a href='${env.BUILD_URL}'>${env.JOB_NAME} [${env.BUILD_NUMBER}]</a>&QUOT;</p>"""
+                <p>Visit https://csis-dev.myclimateservice.eu/ and see attached error log for more details.</p>"""
         }
         unstable {
             emailext attachLog: true, 
-				to: "dev@cismet.de", 
-				subject: "Jenkins build became unstable: ${currentBuild.fullDisplayName}",
+				to: "clarity-dev@lists.atosresearch.eu", 
+				subject: "CSIS DEV became unstable: ${currentBuild.fullDisplayName}",
                 body: """<p>UNSTABLE: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]':</p>
-                <p>Check console output at &QUOT;<a href='${env.BUILD_URL}'>${env.JOB_NAME} [${env.BUILD_NUMBER}]</a>&QUOT;</p>"""
+                <p>Visit https://csis-dev.myclimateservice.eu/ and see attached error log for more details.</p>"""
         }
+      }
     }
 }
