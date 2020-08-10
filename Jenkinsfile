@@ -64,6 +64,5 @@ pipeline {
                 body: """<p>UNSTABLE: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]':</p>
                 <p>Visit https://csis-dev.myclimateservice.eu/ and see attached error log for more details.</p>"""
         }
-      }
     }
 }
