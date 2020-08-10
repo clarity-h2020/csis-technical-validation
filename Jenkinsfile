@@ -52,17 +52,17 @@ pipeline {
         }
         failure {
             emailext attachLog: true, 
-				to: "dev@cismet.de", 
-				subject: "Build failed in Jenkins: ${currentBuild.fullDisplayName}",
+				to: "clarity-dev@lists.atosresearch.eu", 
+				subject: "EMIKAT for CSIS Tests failed: ${currentBuild.fullDisplayName}",
                 body: """<p>FAILED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]':</p>
-                <p>Check console output at &QUOT;<a href='${env.BUILD_URL}'>${env.JOB_NAME} [${env.BUILD_NUMBER}]</a>&QUOT;</p>"""
+                <p>Visit <a href='https://csis.myclimateservice.eu/maintenance/check-emikat-results'>Results for Emikat test Study 60</a> for more details.</p>"""
         }
         unstable {
             emailext attachLog: true, 
-				to: "dev@cismet.de", 
-				subject: "Jenkins build became unstable: ${currentBuild.fullDisplayName}",
+				to: "clarity-dev@lists.atosresearch.eu", 
+				subject: "EMIKAT for CSIS became unstable: ${currentBuild.fullDisplayName}",
                 body: """<p>UNSTABLE: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]':</p>
-                <p>Check console output at &QUOT;<a href='${env.BUILD_URL}'>${env.JOB_NAME} [${env.BUILD_NUMBER}]</a>&QUOT;</p>"""
+                <p>Visit <a href='https://csis.myclimateservice.eu/maintenance/check-emikat-results'>Results for Emikat test Study 60</a> for more details.</p>"""
         }
     }
 }
