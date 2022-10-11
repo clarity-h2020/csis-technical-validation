@@ -50,19 +50,5 @@ pipeline {
                     issueLabel: 'CI',
                     issueTitle: '$JOB_NAME $BUILD_DISPLAY_NAME failed'])
         }
-        failure {
-            emailext attachLog: true, 
-				to: "clarity-dev@lists.atosresearch.eu", 
-				subject: "CSIS DEV UI Integration Tests failed: ${currentBuild.fullDisplayName}",
-                body: """<p>FAILED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]':</p>
-                <p>Visit https://csis-dev.myclimateservice.eu/ and see attached error log for more details.</p>"""
-        }
-        unstable {
-            emailext attachLog: true, 
-				to: "clarity-dev@lists.atosresearch.eu", 
-				subject: "CSIS DEV became unstable: ${currentBuild.fullDisplayName}",
-                body: """<p>UNSTABLE: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]':</p>
-                <p>Visit https://csis-dev.myclimateservice.eu/ and see attached error log for more details.</p>"""
-        }
     }
 }
